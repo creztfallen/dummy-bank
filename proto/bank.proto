@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/creztfallen/dummy-bank/proto";
+option go_package = "./pb";
 
 message HelloRequest {
   string name = 1;
@@ -11,5 +11,5 @@ message HelloResponse {
 }
 
 service Greeter {
-  rpc SayHello (HelloRequest) returns (HelloResponse);
+  rpc SayHello (HelloRequest) returns (HelloResponse) {};
 }
