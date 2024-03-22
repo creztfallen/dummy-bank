@@ -20,95 +20,98 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type BankAccountType int32
+type BankStatus int32
 
 const (
-	BankAccountType_SAVINGS  BankAccountType = 0
-	BankAccountType_CHECKING BankAccountType = 1
+	BankStatus_IS_INACTIVE BankStatus = 0
+	BankStatus_IS_ACTIVE   BankStatus = 1
 )
 
-// Enum value maps for BankAccountType.
+// Enum value maps for BankStatus.
 var (
-	BankAccountType_name = map[int32]string{
-		0: "SAVINGS",
-		1: "CHECKING",
+	BankStatus_name = map[int32]string{
+		0: "IS_INACTIVE",
+		1: "IS_ACTIVE",
 	}
-	BankAccountType_value = map[string]int32{
-		"SAVINGS":  0,
-		"CHECKING": 1,
+	BankStatus_value = map[string]int32{
+		"IS_INACTIVE": 0,
+		"IS_ACTIVE":   1,
 	}
 )
 
-func (x BankAccountType) Enum() *BankAccountType {
-	p := new(BankAccountType)
+func (x BankStatus) Enum() *BankStatus {
+	p := new(BankStatus)
 	*p = x
 	return p
 }
 
-func (x BankAccountType) String() string {
+func (x BankStatus) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (BankAccountType) Descriptor() protoreflect.EnumDescriptor {
+func (BankStatus) Descriptor() protoreflect.EnumDescriptor {
 	return file_proto_bank_proto_enumTypes[0].Descriptor()
 }
 
-func (BankAccountType) Type() protoreflect.EnumType {
+func (BankStatus) Type() protoreflect.EnumType {
 	return &file_proto_bank_proto_enumTypes[0]
 }
 
-func (x BankAccountType) Number() protoreflect.EnumNumber {
+func (x BankStatus) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use BankAccountType.Descriptor instead.
-func (BankAccountType) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use BankStatus.Descriptor instead.
+func (BankStatus) EnumDescriptor() ([]byte, []int) {
 	return file_proto_bank_proto_rawDescGZIP(), []int{0}
 }
 
-type BankAccountStatus int32
+type BankType int32
 
 const (
-	BankAccountStatus_INACTIVE BankAccountStatus = 0
-	BankAccountStatus_ACTIVE   BankAccountStatus = 1
+	BankType_NOT_FOUND BankType = 0
+	BankType_CHECKING  BankType = 1
+	BankType_SAVINGS   BankType = 2
 )
 
-// Enum value maps for BankAccountStatus.
+// Enum value maps for BankType.
 var (
-	BankAccountStatus_name = map[int32]string{
-		0: "INACTIVE",
-		1: "ACTIVE",
+	BankType_name = map[int32]string{
+		0: "NOT_FOUND",
+		1: "CHECKING",
+		2: "SAVINGS",
 	}
-	BankAccountStatus_value = map[string]int32{
-		"INACTIVE": 0,
-		"ACTIVE":   1,
+	BankType_value = map[string]int32{
+		"NOT_FOUND": 0,
+		"CHECKING":  1,
+		"SAVINGS":   2,
 	}
 )
 
-func (x BankAccountStatus) Enum() *BankAccountStatus {
-	p := new(BankAccountStatus)
+func (x BankType) Enum() *BankType {
+	p := new(BankType)
 	*p = x
 	return p
 }
 
-func (x BankAccountStatus) String() string {
+func (x BankType) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (BankAccountStatus) Descriptor() protoreflect.EnumDescriptor {
+func (BankType) Descriptor() protoreflect.EnumDescriptor {
 	return file_proto_bank_proto_enumTypes[1].Descriptor()
 }
 
-func (BankAccountStatus) Type() protoreflect.EnumType {
+func (BankType) Type() protoreflect.EnumType {
 	return &file_proto_bank_proto_enumTypes[1]
 }
 
-func (x BankAccountStatus) Number() protoreflect.EnumNumber {
+func (x BankType) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use BankAccountStatus.Descriptor instead.
-func (BankAccountStatus) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use BankType.Descriptor instead.
+func (BankType) EnumDescriptor() ([]byte, []int) {
 	return file_proto_bank_proto_rawDescGZIP(), []int{1}
 }
 
@@ -116,14 +119,14 @@ var File_proto_bank_proto protoreflect.FileDescriptor
 
 var file_proto_bank_proto_rawDesc = []byte{
 	0x0a, 0x10, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x62, 0x61, 0x6e, 0x6b, 0x2e, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x12, 0x04, 0x62, 0x61, 0x6e, 0x6b, 0x2a, 0x2c, 0x0a, 0x0f, 0x42, 0x61, 0x6e, 0x6b,
-	0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x54, 0x79, 0x70, 0x65, 0x12, 0x0b, 0x0a, 0x07, 0x53,
-	0x41, 0x56, 0x49, 0x4e, 0x47, 0x53, 0x10, 0x00, 0x12, 0x0c, 0x0a, 0x08, 0x43, 0x48, 0x45, 0x43,
-	0x4b, 0x49, 0x4e, 0x47, 0x10, 0x01, 0x2a, 0x2d, 0x0a, 0x11, 0x42, 0x61, 0x6e, 0x6b, 0x41, 0x63,
-	0x63, 0x6f, 0x75, 0x6e, 0x74, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x0c, 0x0a, 0x08, 0x49,
-	0x4e, 0x41, 0x43, 0x54, 0x49, 0x56, 0x45, 0x10, 0x00, 0x12, 0x0a, 0x0a, 0x06, 0x41, 0x43, 0x54,
-	0x49, 0x56, 0x45, 0x10, 0x01, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x74, 0x6f, 0x12, 0x04, 0x62, 0x61, 0x6e, 0x6b, 0x2a, 0x2c, 0x0a, 0x0a, 0x42, 0x61, 0x6e, 0x6b,
+	0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x0f, 0x0a, 0x0b, 0x49, 0x53, 0x5f, 0x49, 0x4e, 0x41,
+	0x43, 0x54, 0x49, 0x56, 0x45, 0x10, 0x00, 0x12, 0x0d, 0x0a, 0x09, 0x49, 0x53, 0x5f, 0x41, 0x43,
+	0x54, 0x49, 0x56, 0x45, 0x10, 0x01, 0x2a, 0x34, 0x0a, 0x08, 0x42, 0x61, 0x6e, 0x6b, 0x54, 0x79,
+	0x70, 0x65, 0x12, 0x0d, 0x0a, 0x09, 0x4e, 0x4f, 0x54, 0x5f, 0x46, 0x4f, 0x55, 0x4e, 0x44, 0x10,
+	0x00, 0x12, 0x0c, 0x0a, 0x08, 0x43, 0x48, 0x45, 0x43, 0x4b, 0x49, 0x4e, 0x47, 0x10, 0x01, 0x12,
+	0x0b, 0x0a, 0x07, 0x53, 0x41, 0x56, 0x49, 0x4e, 0x47, 0x53, 0x10, 0x02, 0x42, 0x06, 0x5a, 0x04,
+	0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -140,8 +143,8 @@ func file_proto_bank_proto_rawDescGZIP() []byte {
 
 var file_proto_bank_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_proto_bank_proto_goTypes = []interface{}{
-	(BankAccountType)(0),   // 0: bank.BankAccountType
-	(BankAccountStatus)(0), // 1: bank.BankAccountStatus
+	(BankStatus)(0), // 0: bank.BankStatus
+	(BankType)(0),   // 1: bank.BankType
 }
 var file_proto_bank_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type

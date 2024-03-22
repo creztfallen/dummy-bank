@@ -18,7 +18,7 @@ func main() {
 	req := &pb.BankRequest{
 		BankName:      "Giancardi",
 		AccountNumber: 123456789,
-		AccountType:   pb.BankAccountType_CHECKING,
+		AccountType:   pb.BankType_CHECKING,
 	}
 
 	res, err := client.GetBankInformation(context.Background(), req)

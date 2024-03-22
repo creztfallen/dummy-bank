@@ -1,3 +1,23 @@
 syntax = "proto3";
 
-import "bank.proto";
+option go_package = "./pb";
+
+import "proto/bank.proto";
+
+message BankRequest {
+  string bank_name = 1;
+  int64 account_number = 2;
+  bank.BankType account_type= 3;
+}
+
+message BankResponse {
+  string bank_name = 1;
+  string account_holder = 2;
+  int64 account_number = 3;
+  bank.BankStatus bank_status = 4;
+  double account_balance = 5;
+}
+
+service BankService {
+  rpc GetBankInformation(BankRequest) returns (BankResponse);
+}
